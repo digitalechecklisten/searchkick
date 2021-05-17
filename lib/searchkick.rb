@@ -78,7 +78,7 @@ module Searchkick
     Gem::Version.new(server_version.split("-")[0]) < Gem::Version.new(version.split("-")[0])
   end
 
-  def self.search(term = "*", model: nil, **options, &block)
+  def self.search(term = "*", model: nil, options, &block)
     options = options.dup
     klass = model
 
