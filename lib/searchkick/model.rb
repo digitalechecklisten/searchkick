@@ -39,7 +39,7 @@ module Searchkick
         class_variable_set :@@searchkick_index_cache, {}
 
         class << self
-          def searchkick_search(term = "*", **options, &block)
+          def searchkick_search(term = "*", options, &block)
             Searchkick.search(term, {model: self}.merge(options), &block)
           end
           alias_method Searchkick.search_method_name, :searchkick_search if Searchkick.search_method_name
