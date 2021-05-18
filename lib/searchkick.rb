@@ -78,7 +78,7 @@ module Searchkick
     Gem::Version.new(server_version.split("-")[0]) < Gem::Version.new(version.split("-")[0])
   end
 
-  def self.search(term = "*", model: nil, **options, &block)
+  def self.search(term, model, options)
     options = options.dup
     klass = model
 
@@ -91,7 +91,6 @@ module Searchkick
       end
     end
 
-    options = options.merge(block: block) if block
     query = Searchkick::Query.new(klass, term, options)
     if options[:execute] == false
       query
